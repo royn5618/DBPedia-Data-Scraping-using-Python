@@ -28,6 +28,17 @@ dbpedia_url = "http://dbpedia.org/sparql"
 #    foaf:name ?i.
 #    FILTER(LANG(?c) = "en")}
 #    '''
+
+query = '''PREFIX foaf: <http://xmlns.com/foaf/0.1/>
+    PREFIX dbo: <http://dbpedia.org/ontology/>
+    PREFIX dbr: <http://dbpedia.org/resource/>
+    PREFIX dbp: <http://dbpedia.org/property/>
+    PREFIX ling: <http://purl.org/linguistics/gold/>
+    SELECT DISTINCT ?a, ?dob, ?ht, ?hpn, ?g, ?name, ?c
+    WHERE{{?a a dbo:Athlete; dbo:birthDate ?dob; dbo:height ?ht; ling:hypernym ?hpn; foaf:gender ?g; foaf:name ?name.
+    OPTIONAL{{?a  dbo:country ?c}}
+    FILTER(LANG(?name) = "en").
+    }} ORDER BY ?name LIMIT {limit} OFFSET {offset}'''
 dbpedia_limit = 10000
 
 def get_query(limit, offset):
@@ -40,4 +51,4 @@ def get_query(limit, offset):
     WHERE{{?a a dbo:Athlete; dbo:birthDate ?dob; dbo:height ?ht; ling:hypernym ?hpn; foaf:gender ?g; foaf:name ?name.
     OPTIONAL{{?a  dbo:country ?c}}
     FILTER(LANG(?name) = "en").
-    }} ORDER BY ?name LIMIT {limit} OFFSET {offset}'''
+    }} LIMIT {limit} OFFSET {offset}'''
