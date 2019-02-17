@@ -2,7 +2,7 @@
 """
 Created on Thu Jul  5 12:33:15 2018
 
-@author: Owner
+@author: Naba
 """
 
 from pandas.io.json import json_normalize
