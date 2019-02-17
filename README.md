@@ -1,6 +1,5 @@
-# World-Athletes-Data-Analysis
-DBpedia data + Data analysis + Data visualisation
+# DBPedia Data Scraping
 
-Total number of records in DBPedia (includes duplicates)= 398689
-Scraped records (including duplicates)= 398688
+This is a freelance project that uses SPARQL queries to extract information from DBpedia.
 
+Project 1: Scrape athletes data into a csv file. 
