@@ -76,7 +76,12 @@ def scrape_dbpedia(query, sparql):
     except Exception as e:
         print(e)
         print("Error in scraping DBpedia. Revise configurations.")
-        sys.exit(1)
+        if len(df) == 0:
+            print("No response collected. Exit.")
+            sys.exit(1)
+        else:
+            print("Collected rows: {}".format(len(df)))
+            print("Incomplete data is being downloaded.")
     return df
 
 

@@ -8,6 +8,7 @@ from pandas import ExcelWriter
 import pandas as pd
 from datetime import datetime
 import os
+from common.common_settings import CommonConfig
 
 
 class Helper:
@@ -18,15 +19,15 @@ class Helper:
     @staticmethod
     def write_to_excel(df, file_name):
         formatted_file_name = Helper.get_file_name(file_name)
-        writer = ExcelWriter(formatted_file_name + '.xlsx')
+        writer = ExcelWriter(CommonConfig.DATA_FOLDER_PATH + '/' + formatted_file_name + '.xlsx')
         df.to_excel(writer)
         writer.save()
-        print('done')
+        print('Done.')
 
     @staticmethod
     def write_to_pickle(df, file_name):
         formatted_file_name = Helper.get_file_name(file_name)
-        df.to_pickle(formatted_file_name + '.pkl')
+        df.to_pickle(CommonConfig.DATA_FOLDER_PATH + '/' + formatted_file_name + '.pkl')
         print("-------------WRITING TO PICKLE COMPLETED-------------")
 
     @staticmethod
