@@ -3,4 +3,4 @@ __pycache__/
 *$py.class
 .idea/
 UnitTests/
-DataAnalysis-JupyterNotebooks/.ipynb_checkpoints/
+DataAnalysis/.ipynb_checkpoints/
