@@ -11,8 +11,9 @@ def get_query(limit, offset):
     PREFIX dbr: <http://dbpedia.org/resource/>
     PREFIX dbp: <http://dbpedia.org/property/>
     PREFIX ling: <http://purl.org/linguistics/gold/>
-    SELECT DISTINCT ?a, ?dob, ?ht, ?hpn, ?g, ?name, ?c
-    WHERE{{?a a dbo:Athlete; dbo:birthDate ?dob; dbo:height ?ht; ling:hypernym ?hpn; foaf:gender ?g; foaf:name ?name.
+    SELECT DISTINCT ?a, ?dob, ?ht, ?hpn, ?g, ?name, ?c, ?intro
+    WHERE{{?a a dbo:Athlete; dbo:birthDate ?dob; dbo:height ?ht;
+    ling:hypernym ?hpn; foaf:gender ?g; foaf:name ?name; dbo:abstract ?intro.
     OPTIONAL{{?a  dbo:country ?c}}
     FILTER(LANG(?name) = "en").
     }} LIMIT {limit} OFFSET {offset}'''
