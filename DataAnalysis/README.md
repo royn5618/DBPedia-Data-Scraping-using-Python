@@ -1,2 +1,2 @@
-# Data Analysis of the Collected Data
+# Analysis of the Collected Data
 
